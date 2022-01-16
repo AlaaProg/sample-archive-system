@@ -1,0 +1,2 @@
+# Archive System
+##### Is a system used to receive, track, manage and store documents and reduce paper. Most are capable of keeping a record of the various versions created and modified by different users (history tracking).
