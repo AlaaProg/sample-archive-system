@@ -1,0 +1,46 @@
+{% extends 'layouts/app.html' %}
+{% load django_bootstrap5 %}
+
+{% block app_content %}
+<div class="px-2 py-4 my-5 text-center">
+    <h1 class="display-6 fw-bold text-uppercase">
+        Create New Category
+    </h1>
+</div>
+<div class="py-5 mb-5">
+    <form action="{{ request.path }}" method="post">
+        {% csrf_token %}
+        {% bootstrap_field form.title %}
+        {% bootstrap_field form.note %}
+        <div class="mb-3">
+            <label for="date" class="form-label">Date</label>
+            {% if form.is_bound %}
+                <input type="date" 
+                    value="{{ form.date.value }}"
+                    class="form-control {% if form.date.errors %} is-invalid {% else %} is-valid {% endif %}" 
+                    name="date" 
+                    id="date" 
+                >
+                {% if form.date.errors %}
+                    <div id="date" class="invalid-feedback">
+                        {% for error in form.date.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% else %}
+                <input value="{{ form.date.value|date:'Y-m-d' }}" type="date" class="form-control" name="date" id="date" >
+            {% endif %}
+
+        </div>
+        {% bootstrap_field form.category %}
+        
+          
+
+        {% bootstrap_button button_type="submit" content="Save" %}
+        <a href="{% url 'document' %}" class="btn btn-info text-white text-uppercase"> 
+            back 
+        </a>
+    </form>
+</div>
+{% endblock %}

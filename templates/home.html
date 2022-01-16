@@ -1,0 +1,64 @@
+{% extends 'layouts/app.html' %}
+
+
+{% block app_content %}
+<div class="px-2 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold text-uppercase">Archive System</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Is a system used to receive, track, manage and store documents and reduce paper. Most are capable of keeping a record of the various versions created and modified by different users (history tracking).</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+       </div>
+    </div>
+</div>
+
+<div class="container px-4 py-5" id="hanging-icons">
+    <h2 class="pb-2 border-bottom">What can you do with me</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="col d-flex align-items-start">
+        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
+        </div>
+        <div class="d-flex flex-column justify-content-between align-items-start" style="height: 11rem;">
+          <div>
+            <h2 class="text-capitalize">Document Management</h2>
+            <p>
+              You can add, delete, read and update document and sorted by category 
+            </p>
+          </div>
+          <a href="#" class="btn btn-primary">
+            Go to Document
+          </a>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"/></svg>
+        </div>
+        <div class="d-flex flex-column justify-content-between align-items-start" style="height: 11rem;">
+            <div>
+                <h2 class="text-capitalize">User Management</h2>
+                <p>
+                    Create, delete, update the user and give roles to access the document by category meaning that gives access to it
+                </p>
+            </div>
+            <a href="#" class="btn btn-primary">
+                Go To Users
+            </a>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start h-100">
+        <div class="d-flex flex-column justify-content-between align-items-start" style="height: 11rem;">
+          <div>
+            <h2 class="text-capitalize">Quick Filter</h2>
+            <p>
+              Quick access to your document by date and title
+            </p>
+          </div>
+          <a href="#" class="btn btn-primary">
+            Primary button
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

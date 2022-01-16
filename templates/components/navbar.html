@@ -1,0 +1,75 @@
+
+<header>
+  <div class="px-3 py-2 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="h2 d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+          Archive System
+        </a>
+
+        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+          <li >
+            <a href="{% url 'home_page' %}"  class="nav-link text-secondary d-flex flex-column align-items-center 
+                {% if request.resolver_match.url_name == 'home_page' %}
+                  text-light
+                {% else  %}
+                  text-secondary
+                {% endif %} 
+              ">
+              <i  class="bi bi-house-door-fill h5"></i>
+              Home
+            </a>
+          </li>
+          {% if perms.document.view_document   %}
+            <li >
+              <a href="{% url 'document' %}"  class="nav-link text-secondary  d-flex flex-column align-items-center 
+                  {% if request.resolver_match.url_name == 'document' %}
+                  text-light
+                  {% else  %}
+                  text-secondary
+                  {% endif %} 
+                ">
+                <i  class="bi bi-files h5"></i>
+                Document
+              </a>
+            </li>
+          {% endif %}
+
+          {% if perms.document.view_category  %}
+          <li >
+            <a href="/category"  class="nav-link d-flex  flex-column align-items-center 
+                {% if request.resolver_match.url_name == 'category' %}
+                  text-light
+                {% else  %}
+                  text-secondary
+                {% endif %} 
+              ">
+              <i class="bi bi-collection h5"></i>
+              Category
+            </a>
+          </li>
+          {% endif %}
+          {% if request.user.is_superuser %}
+            <li>
+              <li >
+                <a href="/admin"  class="nav-link d-flex text-secondary flex-column align-items-center">
+                  <i class="bi bi-emoji-wink-fill h5"></i>
+                  Super Panel
+                </a>
+              </li>
+            </li>
+          {% endif %}
+          <li >
+            <form method="POST" action="{% url 'logout' %}" >
+              {% csrf_token %}
+              <button type="submit" title="Sign Out" class="btn btn-secondary d-flex flex-column align-items-center">
+                <i class="bi bi-box-arrow-right h5"></i>
+                {{ request.user.username }}
+              </button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>

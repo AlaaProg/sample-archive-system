@@ -1,0 +1,21 @@
+{% extends 'layouts/app.html' %}
+{% load django_bootstrap5 %}
+
+{% block app_content %}
+<div class="px-2 py-4 my-5 text-center">
+    <h1 class="display-6 fw-bold text-uppercase">
+        Create New Category
+    </h1>
+</div>
+<div class="py-5 mb-4">
+    <form action="{{ request.path }}" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+
+        {% bootstrap_button button_type="submit" content="Save" %}
+        <a href="{% url 'category' %}" class="btn btn-info text-white text-uppercase"> 
+            back 
+        </a>
+    </form>
+</div>
+{% endblock %}
