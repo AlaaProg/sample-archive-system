@@ -35,7 +35,7 @@
             </li>
           {% endif %}
 
-          {% if perms.document.view_category  %}
+          {% if perms.category.view_category  %}
           <li >
             <a href="/category"  class="nav-link d-flex  flex-column align-items-center 
                 {% if request.resolver_match.url_name == 'category' %}
