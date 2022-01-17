@@ -69,7 +69,7 @@ class CreateDocumentView(LoginRequiredMixin, PermissionRequiredMixin, CreateView
     """Create Category View"""
     model = Document
     template_name = "forms/document.html"
-    fields = ['title', "note", "date", "category"]
+    fields = ['title', "file", "note", "date", "category"]
     success_url = reverse_lazy('document')
     permission_required = ['document.add_document']
 
@@ -82,7 +82,7 @@ class UpdateDocumentView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView
     """Create Category View"""
     model = Document
     template_name = "forms/document.html"
-    fields = ['title', "note", "date", "category"]
+    fields = ['title', "file", "note", "date", "category"]
     success_url = reverse_lazy('document')
     permission_required = ['document.change_document']
 

@@ -56,7 +56,11 @@
           {% for document in documents %}
             <tr >
               <th scope="row">{{ document.id }}</th>
-              <td >{{ document.title }}</td>
+              <td >
+                <a target="_blank" href="{{MEDIA_URL }}/{{document.file}}">
+                  {{ document.title }}
+                </a>
+              </td>
               <td >{{ document.date|date:'Y-m-d' }}</td>
               <td >{{ document.category }}</td>
               <td>{{ document.note }}</td>

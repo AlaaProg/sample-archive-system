@@ -8,15 +8,16 @@
     </h1>
 </div>
 <div class="py-5 mb-5">
-    <form action="{{ request.path }}" method="post">
+    <form action="{{ request.path }}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {% bootstrap_field form.title %}
+        {% bootstrap_field form.file %}
         {% bootstrap_field form.note %}
         <div class="mb-3">
             <label for="date" class="form-label">Date</label>
             {% if form.is_bound %}
                 <input type="date" 
-                    value="{{ form.date.value }}"
+                    value="{{ form.date.value|date:'Y-m-d' }}"
                     class="form-control {% if form.date.errors %} is-invalid {% else %} is-valid {% endif %}" 
                     name="date" 
                     id="date" 

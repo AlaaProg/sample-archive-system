@@ -10,6 +10,7 @@ class Document(models.Model):
 
     title = models.CharField(max_length=255)
     note = models.TextField()
+    file = models.FileField(upload_to="documents", null=True)
     date = models.DateField(null=False)
     add_at = models.DateTimeField(auto_now_add=True)
 

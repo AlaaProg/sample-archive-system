@@ -31,6 +31,10 @@ ALLOWED_HOSTS = []
 LOGIN_URL = "login"
 LOGIN_REDIRECT_URL = "/"
 
+MEDIA_ROOT = str(BASE_DIR.joinpath('documents'))
+MEDIA_URL = '/documents/'
+
+
 # Application definition
 
 INSTALLED_APPS = [
